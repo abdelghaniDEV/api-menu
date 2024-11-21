@@ -5,6 +5,7 @@ const categoriesRouter = require('./routers/categories.router');
 const usersRouter = require('./routers/user.router');
 require('dotenv').config();
 const cors = require("cors");
+const axios = require('axios');
 
 // اتصال قاعدة البيانات
 connectDB();
@@ -20,6 +21,8 @@ app.use(cors());
 app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRouter);
 app.use("/api/users" , usersRouter);
+
+  
 
 // تشغيل الخادم
 const PORT = process.env.PORT;

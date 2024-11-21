@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 // register user
 const registerUser = async (req, res) => {
-  console.log(req.body)
+  
     try {
       // Check if user already exists
       const existingUser = await User.findOne({ email: req.body.email });
@@ -45,7 +45,7 @@ const loginUser = async (req, res) => {
     if (!isMatch) return res.status(400).json({ message: 'Invalid password' });
 
     // Create and send JWT token
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
 
     res.json({ token });
   } catch (error) {

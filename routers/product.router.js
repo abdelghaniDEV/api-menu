@@ -16,7 +16,7 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({storage : storage})
 
-router.route('/').post(authenticate , upload.single('image'),createProduct).get(authenticate, getAllProducts);
+router.route('/').post( upload.single('image'),createProduct).get(   getAllProducts);
 router.route('/:productID').patch(authenticate , upload.single('image'),editProduct).delete(authenticate ,deleteProduct)
   
 
